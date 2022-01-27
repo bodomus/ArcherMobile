@@ -1,0 +1,5 @@
+﻿
+DELETE FROM USERS
+DELETE FROM AspNetUserRoles
+DELETE FROM AspNetUsers
+GO

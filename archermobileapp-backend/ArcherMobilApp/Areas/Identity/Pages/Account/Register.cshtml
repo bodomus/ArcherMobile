@@ -1,0 +1,101 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Users";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="row mb-5">
+    <div class="col-md-3 card " id="edit" style="display: none;">
+        <form asp-route-returnUrl="@Model.ReturnUrl" method="post" id="formUser">
+            <h4 id="captionId">Create a new account.</h4>
+            <hr />
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Input.InputRole"></label>
+                <select asp-for="Input.InputRole" asp-items="Model.Roles" style="display: block; width:100%" id="select"></select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Input.Name"></label>
+                <input asp-for="Input.Name" class="form-control" />
+                <span asp-validation-for="Input.Name" class="text-danger"></span>
+            </div>
+            @Html.Hidden("Input.OldEmail", new { @id = "OldEmail" })
+            <div class="form-group">
+                <label asp-for="Input.Email"></label>
+                <input asp-for="Input.Email" class="form-control" />
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group" id="idPassword">
+                <label asp-for="Input.Password"></label>
+                <input asp-for="Input.Password" class="form-control" />
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group" id="idConfirmPassword">
+                <label asp-for="Input.ConfirmPassword"></label>
+                <input asp-for="Input.ConfirmPassword" class="form-control" />
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group" id="idConfirmICR" style="display:none">
+                <label asp-for="Input.ConfirmICR"></label>
+                <input type="checkbox" asp-for="Input.ConfirmICR" class="form-control" style="float: right; width: 20px;" />
+                <span asp-validation-for="Input.ConfirmICR" class="text-danger"></span>
+            </div>
+
+            <div class="form-group" id="idIsAdmin">
+                <label asp-for="Input.IsAdmin"></label>
+                <input type="checkbox" asp-for="Input.IsAdmin" class="form-control" style="float: right; width: 20px;" />
+                <span asp-validation-for="Input.IsAdmin" class="text-danger"></span>
+            </div>
+            <button type="button" class="btn btn-success" id="idAddBtn" style="width:30%">Add</button>
+            <button type="button" class="btn btn-secondary" id="idCancelBtn" style="width:30%">Cancel</button>
+        </form>
+    </div>
+    <div class="col-md-12 card" id="userGrid">
+        <section>
+            <h4>List of users </h4>
+            <hr />
+
+            <table id="usersTable" class="table" style="width:100%">
+
+                <thead class="thin-border-bottom thin-border-top">
+                    <tr>
+                        <th>User id</th>
+                        <th>Role id</th>
+                        <th>User Name </th>
+                        <th>Role Name</th>
+                        <th>Email</th>
+                        <th>Lockout enabled</th>
+                        <th>Lockout date</th>
+                        <th>Confirm ICR </th>
+                        <th>Last login </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr></tr>
+                </tbody>
+            </table>
+
+            <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                <div>
+                    <p>
+                        @foreach (var provider in Model.ExternalLogins)
+                        {
+                        <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                        }
+                    </p>
+                </div>
+            </form>
+
+
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script type="text/javascript" src="@Url.Content("/js/users.js")"></script>
+}

@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Archer.AMA.BLL.Contract\Archer.AMA.BLL.Contract.csproj" />
+    <ProjectReference Include="..\Archer.AMA.Core\Archer.AMA.Core.csproj" />
+    <ProjectReference Include="..\Archer.AMA.DAL.Contract\Archer.AMA.DAL.Contract.csproj" />
+    <ProjectReference Include="..\Archer.AMA.DTO\Archer.AMA.DTO.csproj" />
+    <ProjectReference Include="..\ArcherMobilApp.BLL\ArcherMobilApp.BLL.csproj" />
+    <ProjectReference Include="..\ArcherMobilApp.DAL.MsSql\ArcherMobilApp.DAL.MsSql.csproj" />
+  </ItemGroup>
+
+</Project>

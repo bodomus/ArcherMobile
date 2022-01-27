@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Base\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Archer.AMA.Core\Archer.AMA.Core.csproj" />
+    <ProjectReference Include="..\Archer.AMA.Entity\Archer.AMA.Entity.csproj" />
+  </ItemGroup>
+
+</Project>

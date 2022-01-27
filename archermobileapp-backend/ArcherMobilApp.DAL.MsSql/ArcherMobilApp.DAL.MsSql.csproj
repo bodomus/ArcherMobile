@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\CarsEntity.cs" />
+    <Compile Remove="UsersContext.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.30" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.HealthChecks" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.1" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Archer.AMA.Core\Archer.AMA.Core.csproj" />
+    <ProjectReference Include="..\Archer.AMA.DAL.Contract\Archer.AMA.DAL.Contract.csproj" />
+    <ProjectReference Include="..\Archer.AMA.Entity\Archer.AMA.Entity.csproj" />
+  </ItemGroup>
+
+</Project>
